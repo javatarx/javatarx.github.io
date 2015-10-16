@@ -1,0 +1,104 @@
+<aside id="left-sidebar-nav" class="hide-on-med-and-down">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="row" id="profile-container">
+                <div class="col s4"><img
+                        src="http://www.pixenaut.es/wp-content/uploads/2015/04/goku_4-600x831.png" alt=""
+                        class="circle responsive-img profile-image"></div>
+                <div class="col s8">
+                    <a class="btn-flat dropdown-button waves-effect waves-light profile-btn" href="#"
+                       data-activates="profile-dropdown">Admin<i
+                            class="material-icons">arrow_drop_down</i></a>
+                    <ul id="profile-dropdown" class="dropdown-content">
+                        <li><a href="#!">one</a></li>
+                        <li><a href="#!">two</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">three</a></li>
+                    </ul>
+                    <p>Administrador</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header waves-effect waves-block waves-light" onclick="location.href='/'"><i
+                    class="material-icons">home</i>Home
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header waves-effect waves-block waves-light"><i
+                    class="material-icons">web</i>Sistema
+            </div>
+            <div class="collapsible-body">
+                <ul class="collection">
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref="_.institucion"><i
+                            class="material-icons">business</i>Institución</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref-active="active"
+                                                                                        ui-sref="_.sucursales"><i
+                            class="material-icons">location_on</i>Sucursales</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref-active="active"
+                                                                                        ui-sref="_.tiposNegocios"><i
+                            class="material-icons">attach_money</i>Tipos Negocio</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref="_.estadosCiviles"><i
+                            class="material-icons">favorite</i>Estado Civil</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref="_.personas"><i
+                            class="material-icons">face</i>Persona</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref="_.tiposDocumentos"><i
+                            class="material-icons">description</i>Tipo Documento</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</aside>
+
+<aside id="left-sidebar-nav-movil" class="side-nav">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header waves-effect waves-block waves-light" onclick="location.href='/'"><i
+                    class="material-icons">home</i>Home
+            </div>
+        </li>
+        <li>
+
+            <div class="collapsible-header waves-effect waves-block waves-light"><i
+                    class="material-icons">web</i>Sistema
+            </div>
+            <div class="collapsible-body">
+                <ul class="collection">
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref="_.instituciones"><i
+                            class="material-icons">business</i>Institución</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref-active="active"
+                                                                                        ui-sref="_.sucursales"><i
+                            class="material-icons">location_on</i>Sucursales</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref-active="active"
+                                                                                        ui-sref="_.tipos-negocios"><i
+                            class="material-icons">attach_money</i>Tipos Negocio</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref="_.estados-civiles"><i
+                            class="material-icons">favorite</i>Estado Civil</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref="_.personas"><i
+                            class="material-icons">face</i>Persona</a>
+                    </li>
+                    <li class="collection-item waves-effect waves-block waves-light"><a ui-sref="_.tipos-documentos"><i
+                            class="material-icons">description</i>Tipo Documento</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+    </ul>
+</aside>
+<script>
+    $(".button-collapse").sideNav();
+    $('.collapsible').collapsible({
+        accordion: false
+    });
+</script>
