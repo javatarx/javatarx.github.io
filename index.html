@@ -1,12 +1,89 @@
-<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title>Distribuciones Suvahi</title> <base href="/"> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.83c27538.css"> <link rel="stylesheet" href="styles/main.097d2250.css">  <body ng-app="suvahiClienteApp"> <!--[if lt IE 7]>
-<p class="browsehappy">Estás usando un navegador <strong>pasado</strong>. Por favor <a href="http://browsehappy.com/">actualiza
-    tu navegador</a> para mejorar tu experiencia.</p>
-<![endif]--> <!-- Add your site or application content here --> <header class="page-topbar" ui-view="header"></header> <div id="main"> <div class="wrapper row"> <div ui-view="menu" id="menu-container" class="col s2"></div> <div id="content" class="col s12 m12 l10" ui-view=""></div> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>!function (A, n, g, u, l, a, r) {
-        A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
-                    (A[l].q = A[l].q || []).push(arguments)
-                }, A[l].l = +new Date, a = n.createElement(g),
-                r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
-    }(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<title>Sinch VIDEO Sample app</title>
+	<link rel="stylesheet" href="style/style.css"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="sinch.min.js"></script>
+</head>
 
-    ga('create', 'UA-68147339-1');
-    ga('send', 'pageview');</script> <script src="scripts/vendor.b29b293c.js"></script> <script src="scripts/scripts.6e814050.js"></script>  
+<body>
+	<div class="top1">
+		<h1>Video calling</h1>
+	</div>
+	
+	<div class="container">
+
+		<div id="chromeFileWarning" class="frame big">
+			<b style="color: red;">Warning!</b> Protocol "file" used to load page in Chrome.<br><br>
+			Please avoid loading files directly from disk when developing WebRTC applications using Chrome.<br>
+			Chrome disables access to microphone which prevents proper functionality.<br>
+			<br>
+			You can allow working with "file:", if you start Chrome with the flag <i>--allow-file-access-from-files</i>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<div class="frame small">
+			<div class="inner loginBox">
+				<h3 id="login">Sign in</h3>
+				<form id="userForm">
+					<input id="username" placeholder="USERNAME"><br>
+					<input id="password" type="password" placeholder="PASSWORD"><br>
+					<button id="loginUser">Login</button>
+					<button id="createUser">Create</button>
+				</form>
+				<div id="userInfo">
+					<h3><span id="username"></span></h3>
+					<button id="logOut">Logout</button>
+				</div>
+			</div>
+
+			<div class="inner takeaways">
+				<h3>Takeaways</h3>
+				<ul>
+					<li>Authenticate users and act on success / failures</li>
+					<li>How to create user and login automatically</li>
+					<li>After page load, look for an earlier session and try to start it</li>
+					<li>Place a video web-to-web call</li>
+					<li>Wire up the incoming stream + start/stop ringback tone as needed</li>
+					<li>Receiving a video call</li>
+					<li>Ending a video call</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="frame">
+			<h3>Video Call</h3>
+			<div id="call">
+				<form id="newCall">
+					<input id="callUserName" placeholder="Username (alice)"><br>
+					<button id="call">Call</button>
+					<button id="hangup">Hangup</button>
+					<button id="answer">Answer</button>
+					
+				</form>
+			</div>
+			<div class="clearfix"><br></div>
+			<video id="videooutgoing" autoplay muted></video>
+			<video id="videoincoming" autoplay></video>
+
+			<div id="callLog">
+			</div>
+			<div class="error">
+			</div>
+		</div>
+	</div>
+
+	<script src="VIDEOsample.js"></script>
+
+</body>
+
+</html>
+
+
+
+
