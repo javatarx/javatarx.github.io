@@ -10,6 +10,8 @@ var showUI = function () {
 	$('h3#login').css('display', 'none');
 	$('video').show();
 	$('span#username').text(global_username);
+
+	call_user();
 }
 
 
@@ -90,15 +92,11 @@ $('button#createUser').on('click', function (event) {
 
 /*** Login user and save session in localStorage ***/
 
-$('button#loginUser').on('click', function (event) {
-	event.preventDefault();
-	$('button#loginUser').attr('disabled', true);
-	$('button#createUser').attr('disabled', true);
-	clearError();
-
+var login = function () {
+	alert('LOGIN');
 	var signInObj = {};
-	signInObj.username = $('input#username').val();
-	signInObj.password = $('input#password').val();
+	signInObj.username = 'central';
+	signInObj.password = 'central';
 
 	//Use Sinch SDK to authenticate a user
 	sinchClient.start(signInObj, function () {
@@ -109,7 +107,8 @@ $('button#loginUser').on('click', function (event) {
 		//Store session & manage in some way (optional)
 		localStorage[sessionName] = JSON.stringify(sinchClient.getSession());
 	}).fail(handleError);
-});
+	
+};
 
 /*** Create audio elements for progresstone and incoming sound */
 const audioProgress = document.createElement('audio');
@@ -222,6 +221,14 @@ $('button#call').click(function (event) {
 	}
 });
 
+var call_user = function(){
+	alert('call');
+	console.log('Placing call to: 01234567');
+	call = callClient.callUser('01234567');
+
+	call.addEventListener(callListeners);
+};
+
 /*** Hang up a call ***/
 
 $('button#hangup').click(function (event) {
@@ -282,5 +289,6 @@ if (location.protocol == 'file:' && navigator.userAgent.toLowerCase().indexOf('c
 
 $('button').prop('disabled', false); //Solve Firefox issue, ensure buttons always clickable after load
 
+login();
 
-
+//call_user();
