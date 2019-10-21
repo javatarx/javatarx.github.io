@@ -23,7 +23,8 @@ var showLoginUI = function () {
 //*** Set up sinchClient ***/
 
 sinchClient = new SinchClient({
-	applicationKey: 'de6fd769-0a6c-4b08-8660-3473b3f0ea07',
+	applicationKey: '4be192eb-0f60-4c0e-8f44-3411d2262e53',
+	// applicationKey: 'de6fd769-0a6c-4b08-8660-3473b3f0ea07',
 	capabilities: { calling: true, video: true },
 	supportActiveConnection: true,
 	//Note: For additional loging, please uncomment the three rows below
