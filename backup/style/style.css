@@ -269,7 +269,7 @@ button {
 	vertical-align: bottom;
 	border: none;
 	outline: 0 none;
-	padding: 15px;
+	padding: 10px 15px 10px 15px;
 	float: left;
 	margin: 2px;
 }
@@ -360,3 +360,8 @@ video {
 	border-radius: 3px;
 	display: none;
 }
+
+
+
+
+
