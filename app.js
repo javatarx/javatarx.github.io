@@ -1,5 +1,6 @@
 var global_username = '';
-
+$('#answer').hide();
+$('#hangup').hide();
 
 /*** After successful authentication, show user interface ***/
 function findGetParameter(parameterName) {
@@ -57,13 +58,11 @@ var callApp = function(){
 	$('div#callLog').append('<div id="title">Calling prueba</div>');
 
 	var userId = findGetParameter('uid');
-	if(!userId){
-		userId = '01234567';
-		alert(userId);
-	}
+	if(userId){
 		call = callClient.callUser(userId);
 		call.addEventListener(callListeners);
-	
+	}
+		
 	
 };
 
@@ -193,15 +192,21 @@ var callListeners = {
 		audioProgress.loop = true;
 		audioProgress.play();
 		videoOutgoing.srcObject = call.outgoingStream;
+		
+		$('#answer').show();
+		$('#hangup').hide();
 
 		//Report call stats
 		$('div#callLog').append('<div id="stats">Ringing...</div>');
 	},
 	onCallEstablished: function (call) {
-		//videoOutgoing.srcObject = call.outgoingStream;
+		videoOutgoing.srcObject = call.outgoingStream;
 		videoIncoming.srcObject = call.incomingStream;
 		audioProgress.pause();
 		audioRingTone.pause();
+
+		$('#answer').hide();
+		$('#hangup').show();
 		//Report call stats
 		var callDetails = call.getDetails();
 		$('div#callLog').append('<div id="stats">Answered at: ' + (callDetails.establishedTime && new Date(callDetails.establishedTime)) + '</div>');
@@ -215,6 +220,8 @@ var callListeners = {
 		$('button').removeClass('incall');
 		$('button').removeClass('callwaiting');
 
+		$('#answer').hide();
+		$('#hangup').hide();
 		//Report call stats
 		var callDetails = call.getDetails();
 		$('div#callLog').append('<div id="stats">Ended: ' + new Date(callDetails.endedTime) + '</div>');
@@ -245,7 +252,10 @@ callClient.addEventListener({
 		$('div#callLog').append('<div id="title">Incoming call from ' + incomingCall.fromId + '</div>');
 		$('div#callLog').append('<div id="stats">Ringing...</div>');
 		$('button').addClass('incall');
-
+		
+		$('#answer').show();
+		$('#hangup').hide();
+		
 		//Manage the call object
 		call = incomingCall;
 		call.addEventListener(callListeners);
